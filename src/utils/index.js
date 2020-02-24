@@ -27,4 +27,16 @@ function login(email, password) {
     });
 }
 
-module.exports = { login, register };
+function getToken() {
+  app
+    .auth()
+    .currentUser.getIdToken(false)
+    .then((token) => {
+      return token;
+    })
+    .catch((error) => {
+      return error;
+    });
+}
+
+module.exports = { getToken, login, register };
