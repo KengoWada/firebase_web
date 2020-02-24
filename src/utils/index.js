@@ -1,4 +1,4 @@
-import Firebase from 'firebase';
+import Firebase, { auth } from 'firebase';
 import config from './config';
 
 const app = Firebase.initializeApp(config);
@@ -27,6 +27,20 @@ function login(email, password) {
     });
 }
 
+function loginWithGoogle() {
+  const google = new auth.GoogleAuthProvider();
+
+  app
+    .auth()
+    .signInWithPopup(google)
+    .then((resp) => {
+      return resp;
+    })
+    .catch((error) => {
+      return error;
+    });
+}
+
 function getToken() {
   app
     .auth()
@@ -39,4 +53,4 @@ function getToken() {
     });
 }
 
-module.exports = { getToken, login, register };
+module.exports = { getToken, login, loginWithGoogle, register };
