@@ -8,10 +8,10 @@ class Auth {
     app
       .auth()
       .createUserWithEmailAndPassword(email, password)
-      .then((resp) => {
+      .then(resp => {
         return resp;
       })
-      .catch((error) => {
+      .catch(error => {
         return error;
       });
   }
@@ -20,10 +20,10 @@ class Auth {
     app
       .auth()
       .signInWithEmailAndPassword(email, password)
-      .then((resp) => {
+      .then(resp => {
         return resp;
       })
-      .catch((error) => {
+      .catch(error => {
         return error;
       });
   }
@@ -34,10 +34,10 @@ class Auth {
     app
       .auth()
       .signInWithPopup(google)
-      .then((resp) => {
+      .then(resp => {
         return resp;
       })
-      .catch((error) => {
+      .catch(error => {
         return error;
       });
   }
@@ -46,10 +46,10 @@ class Auth {
     app
       .auth()
       .currentUser.getIdToken(false)
-      .then((token) => {
+      .then(token => {
         return token;
       })
-      .catch((error) => {
+      .catch(error => {
         return error;
       });
   }
