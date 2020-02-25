@@ -1,9 +1,9 @@
 import Firebase, { auth } from 'firebase';
 import config from './config';
 
-const app = Firebase.initializeApp(config);
+export const app = Firebase.initializeApp(config);
 
-class Auth {
+export class Auth {
   /**
    * Register a user with Firebase.
    *
@@ -14,14 +14,14 @@ class Auth {
    *
    * @returns {Object} Returns the response from the Firebase for both an error and success.
    */
-  static register(email, password) {
+  static register (email, password) {
     app
       .auth()
       .createUserWithEmailAndPassword(email, password)
-      .then(resp => {
+      .then((resp) => {
         return resp;
       })
-      .catch(error => {
+      .catch((error) => {
         return error;
       });
   }
@@ -34,14 +34,14 @@ class Auth {
    *
    * @returns {Object} Return the response from the Firebase for both an error and success.
    */
-  static logIn(email, password) {
+  static logIn (email, password) {
     app
       .auth()
       .signInWithEmailAndPassword(email, password)
-      .then(resp => {
+      .then((resp) => {
         return resp;
       })
-      .catch(error => {
+      .catch((error) => {
         return error;
       });
   }
@@ -51,16 +51,16 @@ class Auth {
    *
    * @returns {Object} Return the response from the Firebase for both an error and success.
    */
-  static logInWithGoogle() {
+  logInWithGoogle () {
     const google = new auth.GoogleAuthProvider();
 
     app
       .auth()
       .signInWithPopup(google)
-      .then(resp => {
+      .then((resp) => {
         return resp;
       })
-      .catch(error => {
+      .catch((error) => {
         return error;
       });
   }
@@ -70,58 +70,58 @@ class Auth {
    *
    * @returns {Object} Return the response from the Firebase for both an error and success.
    */
-  static getToken() {
+  static getToken () {
     app
       .auth()
       .currentUser.getIdToken(false)
-      .then(token => {
+      .then((token) => {
         return token;
       })
-      .catch(error => {
+      .catch((error) => {
         return error;
       });
   }
 }
 
-class Posts {
-  constructor(name, post) {
+export class Posts {
+  constructor (name, post) {
     this.name = name;
     this.post = post;
     this.postsCollection = app.firestore().collection('Posts');
   }
 
-  create() {
+  create () {
     const postData = {
       name: this.name,
       post: this.post,
       uid: app.auth().currentUser.uid,
-      createAt: new Date().toLocaleString(),
+      createAt: new Date().toLocaleString()
     };
 
     this.postsCollection
       .add(postData)
-      .then(resp => {
+      .then((resp) => {
         return resp;
       })
-      .catch(error => {
+      .catch((error) => {
         return error;
       });
   }
 
-  static getPosts() {
+  static getPosts () {
     this.postsCollection
       .get()
-      .then(querySnapshot => {
+      .then((querySnapshot) => {
         let posts = [];
-        querySnapshot.forEach(doc => {
+        querySnapshot.forEach((doc) => {
           posts.push(doc.data());
         });
         return posts;
       })
-      .catch(error => {
+      .catch((error) => {
         return error;
       });
   }
 }
 
-module.exports = { Auth, Posts };
+// module.exports = { Auth, Posts };
