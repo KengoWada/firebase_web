@@ -6,8 +6,10 @@ import { withRouter } from 'react-router-dom';
 
 const Registration = (props) => {
   const [ login, setLogin ] = useState(true);
-  const [ email, setEmail ] = useState('musanje2010@gmail.com');
-  const [ password, setPassword ] = useState('personGoogle45');
+  // const [ email, setEmail ] = useState('musanje2010@gmail.com');
+  // const [ password, setPassword ] = useState('personGoogle45');
+  const [ email, setEmail ] = useState('');
+  const [ password, setPassword ] = useState('');
   const [ user, setUser ] = useState(undefined);
   // const [ loggedin, setLoggedin ] = useState(false);
 
@@ -23,7 +25,7 @@ const Registration = (props) => {
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then((resp) => {
-        console.log('login response', resp);
+        console.log('login response', resp.user);
         // setUser(resp);
         setUser(resp);
         props.history.push('/posts', JSON.stringify(resp.user));
