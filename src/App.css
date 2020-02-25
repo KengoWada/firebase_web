@@ -45,5 +45,68 @@
   flex-direction: column;
 }
 
-.input {
+.login-container > input {
+  /* border: 1px solid #eee; */
+  width: 300px;
+  height: 30px;
+  font-size: 15px;
+  outline: none;
+  padding: 10px;
+  margin: 0px 0px 10px 0px;
+}
+
+.login-container > button {
+  width: 200px;
+  height: 30px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin: 5px 0px;
+  outline: none;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.profile-container {
+  /* border: 1px solid black; */
+  max-height: 800px;
+  height: 800px;
+  width: 50%;
+}
+
+.posts-container {
+  /* border: 1px solid black; */
+  /* max-height: 800px; */
+  height: 800px;
+  width: 50%;
+  padding: 10px 10px;
+}
+.post-post-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.single-post {
+}
+.post-button {
+  width: 100%;
+  font-weight: bold;
+  color: white;
+  font-size: 20px;
+  height: 50px;
+  outline: none;
+  background-color: rgb(30, 78, 30);
+  cursor: pointer;
+}
+.text-area {
+  font-size: 18px;
+  outline: none;
+}
+
+.google-login {
+  background-color: blue !important;
+  color: white;
+  padding: 10px 20px 10px 20px;
+  width: 20% !important;
+  height: 50px !important;
 }
