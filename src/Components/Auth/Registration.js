@@ -23,7 +23,7 @@ const Registration = (props) => {
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then((resp) => {
-        console.log(resp);
+        console.log('login response', resp);
         // setUser(resp);
         setUser(resp);
         props.history.push('/posts', JSON.stringify(resp.user));
