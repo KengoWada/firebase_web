@@ -14,6 +14,18 @@ Intro to Firebase web
 
 - Create a build `npm run build` or `yarn build`
 
+## How to deploy
+
+- Install firebase cli `npm i -g firebase-tools`
+
+- Log into firebase `firebase login`
+
+- Initialize your app `firebase init`
+
+- Select a project and choose the right configurations
+
+- Deploy the app `firebase deploy`
+
 ### Contributors
 
 - [Kengo Wada](https://github.com/KengoWada)
